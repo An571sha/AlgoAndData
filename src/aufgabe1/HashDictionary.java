@@ -3,6 +3,26 @@ package aufgabe1;
 import java.util.Iterator;
 
 public class HashDictionary<K extends Comparable<? super K>, V> implements Dictionary<K, V>, Iterable<aufgabe1.Dictionary.Entry<K, V>>  {
+    private static class Entry<K,V> {
+        K key;
+        V value;
+        Entry<K,V>next;
+        Entry(K k, V v) {
+            key = k; value = v;
+        }
+    };
+    private static final int DEF_CAPACITY = 16;
+    private int size;
+    private Entry<K,V>[] data;
+
+
+    public HashDictionary() {
+        size = 0;
+        data = new Entry[DEF_CAPACITY];
+    }
+
+
+
     @Override
     public V insert(K key, V value) {
         return null;
@@ -10,7 +30,21 @@ public class HashDictionary<K extends Comparable<? super K>, V> implements Dicti
 
     @Override
     public V search(K key) {
-        
+        int hash = getHashcode(key);
+        for (Entry<K, V> e = data[hash]; e != null; e = e.next) {
+            if (e.key.equals(key)) {
+                return e.value;
+            }
+        }
+        return null;
+    }
+
+    public int getHashcode(K key){
+        int a = key.hashCode();
+        if(a<0)
+            a=-a;
+        a=a%data.length;
+        return a;
     }
 
     @Override
@@ -20,7 +54,7 @@ public class HashDictionary<K extends Comparable<? super K>, V> implements Dicti
 
     @Override
     public int size() {
-        return 0;
+        return size;
     }
 
     @Override
