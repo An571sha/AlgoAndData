@@ -2,7 +2,7 @@ package aufgabe1;
 
 import java.util.Iterator;
 
-public class HashDictionary<K extends Comparable<? super K>, V> implements Dictionary<K, V>, Iterable<aufgabe1.Dictionary.Entry<K, V>>  {
+public class HashDictionary<K extends Comparable<? super K>, V> implements Dictionary<K, V> {
     private static class Entry<K,V> {
         K key;
         V value;
@@ -25,7 +25,20 @@ public class HashDictionary<K extends Comparable<? super K>, V> implements Dicti
 
     @Override
     public V insert(K key, V value) {
-        return null;
+        int hash = getHashcode(key);
+        for (Entry<K, V> e = data[hash]; e != null; e = e.next) {
+            if (e.key.equals(key)) {
+                V old = e.value;
+                e.value = value;
+                return old;
+            }
+
+            else{
+                data[hash]  = new  Entry<K,V>(key,value);
+
+            }
+        }
+
     }
 
     @Override
