@@ -49,11 +49,12 @@ public class SortedArrayDictionary<K extends Comparable<? super K>, V> implement
 	}
 
 	@Override
-	public Iterator<aufgabe1.Dictionary.Entry<K, V>> iterator() {
+	public Iterator<Dictionary.Entry<K, V>> iterator() {
 		return null;
 	}
+
 	private class DicIterator implements Iterator<Entry<K,V>> {
-		private Entry<K,V> current; 
+		private Entry<K,V> current;
 		private K key;
 
 		@Override
@@ -84,9 +85,9 @@ public class SortedArrayDictionary<K extends Comparable<? super K>, V> implement
 		@Override
 		public void remove() {
 			throw new UnsupportedOperationException();
-			
+
 		}
-		
+
 	}
 
 	@Override

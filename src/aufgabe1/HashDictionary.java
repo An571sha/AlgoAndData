@@ -21,25 +21,44 @@ public class HashDictionary<K extends Comparable<? super K>, V> implements Dicti
         data = new Entry[DEF_CAPACITY];
     }
 
+    private void ensureCapacity(int newCapacity) {
+        if (newCapacity < size) {
+            return;
+        }
+        Entry<K, V>[] old = data;
+        data = new Entry[newCapacity];
+        System.arraycopy(old, 0, data, 0, size);
+    }
+
 
 
     @Override
     public V insert(K key, V value) {
+
         int hash = getHashcode(key);
-        for (Entry<K, V> e = data[hash]; e != null; e = e.next) {
-            if (e.key.equals(key)) {
-                V old = e.value;
-                e.value = value;
-                return old;
+        V v = search(key);
+        if (v != null) {
+            for (Entry<K, V> e = data[hash]; e != null; e = e.next) {
+                if (e.key.equals(key)) {
+                    V old = e.value;
+                    e.value = value;
+                    return old;
+                } else {
+                    data[hash] = new Entry<K, V>(key, value);
+                    data[hash].key = key;
+                    data[hash].value = value;
+
+                }
+
             }
 
-            else{
-                data[hash]  = new  Entry<K,V>(key,value);
 
-            }
         }
-
+        return null;
     }
+
+
+
 
     @Override
     public V search(K key) {
@@ -53,6 +72,7 @@ public class HashDictionary<K extends Comparable<? super K>, V> implements Dicti
     }
 
     public int getHashcode(K key){
+
         int a = key.hashCode();
         if(a<0)
             a=-a;
@@ -62,16 +82,32 @@ public class HashDictionary<K extends Comparable<? super K>, V> implements Dicti
 
     @Override
     public V remove(K key) {
+        int hash = getHashcode(key);
+        V v = search(key);
+        if(v !=null)
+        for (Entry<K, V> e = data[hash]; e != null; e = e.next) {
+            if (e.key.equals(key)) {
+                data[hash] = e.next;
+                size--;
+                return e.value;
+
+            }
+
+        }
         return null;
+
+
     }
 
     @Override
     public int size() {
-        return size;
+        return data.length;
     }
 
     @Override
-    public Iterator<Entry<K, V>> iterator() {
+    public Iterator<Dictionary.Entry<K, V>> iterator() {
         return null;
     }
+
 }
+
