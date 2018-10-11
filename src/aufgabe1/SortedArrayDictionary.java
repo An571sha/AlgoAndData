@@ -50,7 +50,7 @@ public class SortedArrayDictionary<K extends Comparable<? super K>, V> implement
 
 	@Override
 	public Iterator<Dictionary.Entry<K, V>> iterator() {
-		return null;
+		return new DicIterator();
 	}
 
 	private class DicIterator implements Iterator<Entry<K,V>> {
