@@ -3,15 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="3f495819-6489-4473-8c91-e9438eec5bac" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.name" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/AlgoAndData.iml" afterPath="$PROJECT_DIR$/AlgoAndData.iml" />
-      <change beforePath="$PROJECT_DIR$/bin/aufgabe1/Dictionary$Entry.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/bin/aufgabe1/Dictionary.class" afterPath="" />
       <change beforePath="$PROJECT_DIR$/bin/aufgabe1/DictionaryTest.class" afterPath="" />
       <change beforePath="$PROJECT_DIR$/bin/aufgabe1/SortedArrayDictionary$DicIterator.class" afterPath="" />
       <change beforePath="$PROJECT_DIR$/bin/aufgabe1/SortedArrayDictionary$Entry.class" afterPath="" />
       <change beforePath="$PROJECT_DIR$/bin/aufgabe1/SortedArrayDictionary.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/aufgabe1/SortedArrayDictionary.java" afterPath="$PROJECT_DIR$/src/aufgabe1/SortedArrayDictionary.java" />
     </list>
     <ignored path="$PROJECT_DIR$/bin/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
