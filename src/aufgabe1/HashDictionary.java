@@ -105,7 +105,7 @@ public class HashDictionary<K extends Comparable<? super K>, V> implements Dicti
     }
 
     @Override
-    public Iterator<Dictionary.Entry<K, V>> iterator() {
+    public Iterator<aufgabe1.Dictionary.Entry<K, V>> iterator() {
         return null;
     }
 
