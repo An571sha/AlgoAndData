@@ -1,4 +1,4 @@
-package Alda1;
+package aufgabe1;
 
 import java.util.Iterator;
 import java.util.NoSuchElementException;
@@ -54,53 +54,18 @@ public class SortedArrayDictionary<K extends Comparable<? super K>, V> implement
 	}
 
 
-<<<<<<< HEAD
-    @Override
-	public Iterator<Dictionary.Entry<K, V>> iterator() {
-		Iterator<Dictionary.Entry<K,V>> it = new Iterator<Dictionary.Entry<K,V>>() {
-            private int currentIndex;
-            @Override
-            public boolean hasNext() {
-                return null;
-            }
-
-            @Override
-            public Object next() {
-                Entry<K,V> currentEntry = new SortedArrayDictionary[currentIndex;];
-            }
-
-            @Override
-            public void remove() {
-
-            }
-        };
-	}
-
-	/*private class DicIterator implements Iterator<Entry<K,V>> {
-		private Entry<K,V> current;
-		private K key;
-=======
 
 	@Override
 	public V insert(K key, V value) {
 
 		int i = searchKey(key);
->>>>>>> df3400aeb06d51212b5e1e74405beb45b3296787
 
 		// Vorhander Eintrag wird überschrieben
 
 		if (i != -1) {
 			V r = data[i].value;
-<<<<<<< HEAD
-			Entry<K,V> currentEntry = SortedArraydictionary[current];
-
-
-			}
-			return null;
-=======
 			data[i].value = value;
 			return r;
->>>>>>> df3400aeb06d51212b5e1e74405beb45b3296787
 		}
 
 		// Neueintrag
@@ -108,10 +73,6 @@ public class SortedArrayDictionary<K extends Comparable<? super K>, V> implement
 			ensureCapacity(2*size);
 		}
 
-<<<<<<< HEAD
-	}*/
-
-=======
 		int j = size-1;
 		while (j >= 0 && key.compareTo(data[i].key) < 0) {
 			data[j + 1] = data[j];
@@ -121,7 +82,6 @@ public class SortedArrayDictionary<K extends Comparable<? super K>, V> implement
 		size++;
 		return null;
 	}
->>>>>>> df3400aeb06d51212b5e1e74405beb45b3296787
 
 
 
@@ -170,34 +130,30 @@ public class SortedArrayDictionary<K extends Comparable<? super K>, V> implement
 	}
 
 	@Override
-	// Don't forget to change your Package since we have different ones
-	public Iterator<Alda1.Dictionary.Entry<K, V>> iterator() {
+	public Iterator<aufgabe1.Dictionary.Entry<K, V>> iterator() {
 		// TODO Auto-generated method stub
 		return new SortedArrayDictionaryIterator();
 	}
 
 	// Here aswell or else it will give you an error
-	private class SortedArrayDictionaryIterator implements Iterator<Alda1.Dictionary.Entry<K,V>> {
+	private class SortedArrayDictionaryIterator implements Iterator<aufgabe1.Dictionary.Entry<K, V>> {
 		private int current = 0;
 
 		public boolean hasNext() {
 			return current < size;
 		}
 
-		public Entry<K,V> next() {
+		public Entry<K, V> next() {
 			if (!(hasNext()))
 				throw new NoSuchElementException();
 			return data[current++];
 		}
+
 		public void remove() {
 			throw new UnsupportedOperationException();
 		}
 	}
 
-<<<<<<< HEAD
-
-	}
-=======
 }
 
->>>>>>> df3400aeb06d51212b5e1e74405beb45b3296787
+
