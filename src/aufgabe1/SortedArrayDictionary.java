@@ -48,12 +48,29 @@ public class SortedArrayDictionary<K extends Comparable<? super K>, V> implement
 		return size;
 	}
 
-	@Override
+
+    @Override
 	public Iterator<Dictionary.Entry<K, V>> iterator() {
-		return new DicIterator();
+		Iterator<Dictionary.Entry<K,V>> it = new Iterator<Dictionary.Entry<K,V>>() {
+            private int currentIndex;
+            @Override
+            public boolean hasNext() {
+                return null;
+            }
+
+            @Override
+            public Object next() {
+                Entry<K,V> currentEntry = new SortedArrayDictionary[currentIndex;];
+            }
+
+            @Override
+            public void remove() {
+
+            }
+        };
 	}
 
-	private class DicIterator implements Iterator<Entry<K,V>> {
+	/*private class DicIterator implements Iterator<Entry<K,V>> {
 		private Entry<K,V> current;
 		private K key;
 
@@ -75,9 +92,9 @@ public class SortedArrayDictionary<K extends Comparable<? super K>, V> implement
 				throw new NoSuchElementException();
 			int i = searchKey(key);
 			V r = data[i].value;
-			for (int j = i; j < size - 1; j++) {
-				data[j] = data[j + 1];
-				return data[j];
+			Entry<K,V> currentEntry = SortedArraydictionary[current];
+
+
 			}
 			return null;
 		}
@@ -88,7 +105,8 @@ public class SortedArrayDictionary<K extends Comparable<? super K>, V> implement
 
 		}
 
-	}
+	}*/
+
 
 	@Override
 	public V search(K key) {
@@ -156,4 +174,5 @@ public class SortedArrayDictionary<K extends Comparable<? super K>, V> implement
 		return s.toString();
 	}
 
-}
+
+	}
